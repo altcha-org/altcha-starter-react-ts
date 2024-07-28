@@ -62,7 +62,6 @@ import 'altcha';
 
 ```tsx
 // ExampleComponent.tsx
-import React from 'react';
 
 const ExampleComponent = () => {
   return (

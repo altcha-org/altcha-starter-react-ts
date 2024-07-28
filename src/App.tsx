@@ -1,11 +1,17 @@
+import { useRef } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import Altcha from './Altcha'
 import './App.css'
 
-// Importing altcha package will introduce a new element <altcha-widget>
-import 'altcha'
-
 function App() {
+  const altchaRef = useRef<HTMLInputElement>(null)
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log('Altcha payload:', altchaRef.current?.value)
+  }
+
   return (
     <>
       <div>
@@ -19,7 +25,7 @@ function App() {
 
       <h1>Vite + React</h1>
 
-      <form action="#">
+      <form action="#" method='post' onSubmit={handleSubmit}>
         <fieldset>
           <label>Name:</label>
           <input type="text" name="name" />
@@ -31,14 +37,11 @@ function App() {
         </fieldset>
 
         <fieldset>
-          {/* Configure your `challengeurl` and remove the `test` attribute, see docs: https://altcha.org/docs/website-integration/#using-altcha-widget  */}
-          <altcha-widget
-            style={{
-              '--altcha-max-width': '100%',
-            }}
-            debug
-            test
-          ></altcha-widget>
+
+          <Altcha
+            ref={altchaRef}
+          />
+
         </fieldset>
 
         <button type="submit">Submit</button>
