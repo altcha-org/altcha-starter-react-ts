@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Altcha from './Altcha'
@@ -6,15 +6,17 @@ import './App.css'
 
 function App() {
   const altchaRef = useRef<HTMLInputElement>(null)
+  const [count,setCount] = useState(0)
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log('Altcha payload:', altchaRef.current?.value)
   }
 
+
   const onStateChange = useCallback(()=>{
-    console.log("???")
-  },[])
+    console.log("state change count",count)
+  },[count])
 
   return (
     <>
@@ -28,6 +30,8 @@ function App() {
       </div>
 
       <h1>Vite + React</h1>
+        count: {count}
+        <button onClick={()=>setCount(count+1)}>increment</button>
 
       <form action="#" method='post' onSubmit={handleSubmit}>
         <fieldset>

@@ -19,7 +19,6 @@ const Altcha = forwardRef<{ value: string | null }, AltchaProps>(({ onStateChang
     };
   }, [value])
 
-  console.log("STATE CHANGE",onStateChange)
   useEffect(() => {
     const handleStateChange = (ev: Event | CustomEvent) => {
       if ('detail' in ev) {
@@ -31,11 +30,23 @@ const Altcha = forwardRef<{ value: string | null }, AltchaProps>(({ onStateChang
       }
     }
 
+    const handleEventListener = (ev: Event) => {
+      console.log(ev)
+      if(onStateChange){
+        onStateChange(ev)
+      }
+    }
+    
+    
     const { current } = widgetRef
-
-    if (current) {
+    
+    if (current && onStateChange) {
+      document.addEventListener("click",handleEventListener)
       current.addEventListener('statechange', handleStateChange)
-      return () => current.removeEventListener('statechange', handleStateChange)
+      return () => {
+        document.removeEventListener("click",handleEventListener)
+        current.removeEventListener('statechange', handleStateChange)
+      }
     }
   }, [onStateChange])
 
