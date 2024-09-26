@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useCallback, useRef } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Altcha from './Altcha'
@@ -11,6 +11,10 @@ function App() {
     e.preventDefault()
     console.log('Altcha payload:', altchaRef.current?.value)
   }
+
+  const onStateChange = useCallback(()=>{
+    console.log("???")
+  },[])
 
   return (
     <>
@@ -40,6 +44,7 @@ function App() {
 
           <Altcha
             ref={altchaRef}
+            onStateChange={onStateChange}
           />
 
         </fieldset>

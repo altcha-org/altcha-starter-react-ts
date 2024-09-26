@@ -19,11 +19,15 @@ const Altcha = forwardRef<{ value: string | null }, AltchaProps>(({ onStateChang
     };
   }, [value])
 
+  console.log("STATE CHANGE",onStateChange)
   useEffect(() => {
     const handleStateChange = (ev: Event | CustomEvent) => {
       if ('detail' in ev) {
         setValue(ev.detail.payload || null)
-        onStateChange?.(ev)
+        console.log(ev.detail.state)
+        if(ev.detail.state==="verified"){
+          onStateChange?.(ev)
+        }
       }
     }
 
@@ -42,7 +46,7 @@ const Altcha = forwardRef<{ value: string | null }, AltchaProps>(({ onStateChang
       style={{
         '--altcha-max-width': '100%',
       }}
-      debug
+      //debug
       test
     ></altcha-widget>
   )
