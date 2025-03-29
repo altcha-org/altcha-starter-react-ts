@@ -4,19 +4,19 @@ import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from 're
 import 'altcha'
 
 interface AltchaProps {
-  onStateChange?: (ev: Event | CustomEvent) => void;
+  onStateChange?: (ev: Event | CustomEvent) => void
 }
 
 const Altcha = forwardRef<{ value: string | null }, AltchaProps>(({ onStateChange }, ref) => {
-  const widgetRef = useRef<HTMLElement>(null)
+  const widgetRef = useRef<AltchaWidget & AltchaWidgetMethods & HTMLElement>(null)
   const [value, setValue] = useState<string | null>(null)
 
   useImperativeHandle(ref, () => {
     return {
       get value() {
-        return value;
+        return value
       }
-    };
+    }
   }, [value])
 
   useEffect(() => {
