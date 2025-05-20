@@ -81,4 +81,4 @@ Ensure your `challengeurl` points to the endpoint where ALTCHA's proof-of-work c
 
 ## Conclusion
 
-With these steps, you should have a React project running with the ALTCHA widget integrated. This setup helps protect your application from spam and unwanted content efficiently and compliantly. For more details, visit the [ALTCHA documentation](https://altcha.org/docs/get-started).
+With these steps, you should have a React project running with the ALTCHA widget integrated. This setup helps protect your application from spam and unwanted content efficiently and compliantly. For more details, visit the [ALTCHA documentation](https://altcha.org/docs/v2/).
