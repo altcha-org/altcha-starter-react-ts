@@ -2,13 +2,15 @@ import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from 're
 
 // Importing altcha package will introduce a new element <altcha-widget>
 import 'altcha'
+import type {} from 'altcha/types/react'
+import type { WidgetAttributes, WidgetMethods } from 'altcha/types'
 
 interface AltchaProps {
   onStateChange?: (ev: Event | CustomEvent) => void
 }
 
 const Altcha = forwardRef<{ value: string | null }, AltchaProps>(({ onStateChange }, ref) => {
-  const widgetRef = useRef<AltchaWidget & AltchaWidgetMethods & HTMLElement>(null)
+  const widgetRef = useRef<WidgetAttributes & WidgetMethods & HTMLElement>(null)
   const [value, setValue] = useState<string | null>(null)
 
   useImperativeHandle(ref, () => {
@@ -35,15 +37,14 @@ const Altcha = forwardRef<{ value: string | null }, AltchaProps>(({ onStateChang
     }
   }, [onStateChange])
 
-  /* Configure your `challengeurl` and remove the `test` attribute, see docs: https://altcha.org/docs/v2/widget-integration/  */
+  /* Configure your `challenge` and remove the `test` attribute, see docs: https://altcha.org/docs/v2/widget-integration/  */
   return (
     <altcha-widget
       ref={widgetRef}
-      style={{
-        '--altcha-max-width': '100%',
-      }}
-      debug
-      test
+      configuration={JSON.stringify({
+        debug: true,
+        test: true,
+      })}
     ></altcha-widget>
   )
 })
