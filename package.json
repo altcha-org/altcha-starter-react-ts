@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "altcha": "^3.0.3",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "altcha": "^3.1.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@types/react": "19.0.12",
@@ -22,8 +22,8 @@
     "@vitejs/plugin-react": "^4.7.0",
     "eslint": "^8.57.1",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.24",
+    "eslint-plugin-react-refresh": "^0.4.26",
     "typescript": "^5.9.3",
-    "vite": "^6.4.1"
+    "vite": "^6.4.3"
   }
 }
