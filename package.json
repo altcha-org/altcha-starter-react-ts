@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "altcha": "^3.1.0",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "altcha": "^3.2.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
     "@types/react": "19.0.12",
