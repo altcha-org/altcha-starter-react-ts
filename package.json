@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "altcha": "^3.3.0",
+    "altcha": "^3.5.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
